@@ -16,31 +16,56 @@ import './index.css';
 // // Learn more about service workers: https://bit.ly/CRA-PWA
 // serviceWorker.unregister();
 
-class Counter extends React.Component {
+// class Counter extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = { seconds: 0 };
+//   }
+//   incrementCounter() {
+//     this.setState(
+//       (prevState, props) => ({
+//         seconds: prevState.seconds + 1
+//       })
+//     );
+//   }
+//   componentDidMount() {
+//     this.timeID = setInterval(() => this.incrementCounter(), 1000);
+//   }
+//   componentWillMount() {
+//     clearInterval(this.timeID);
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <h1>This hihihaha</h1>
+//         <h2>Second: {this.state.seconds}</h2>
+//       </div>
+//     );
+//   }
+// }
+// ReactDOM.render(<Counter />, document.getElementById('root'));
+
+class ToggleButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { seconds: 0 };
+    this.state = { isOn: true };
+    this.buttonOnClick = this.buttonOnClick.bind(this);
+
   }
-  incrementCounter() {
-    this.setState(
-      (prevState, props) => ({
-        seconds: prevState.seconds + 1
-      })
-    );
-  }
-  componentDidMount() {
-    this.timeID = setInterval(() => this.incrementCounter(), 1000);
-  }
-  componentWillMount() {
-    clearInterval(this.timeID);
+  buttonOnClick() {
+    this.setState(prevState => ({
+      isOn: !prevState.isOn
+    }
+    ));
   }
   render() {
     return (
-      <div>
-        <h1>This hihihaha</h1>
-        <h2>Second: {this.state.seconds}</h2>
-      </div>
+      <button class="ToggleButton" onClick={this.buttonOnClick}>
+        This is a ToggleButton
+        {this.state.isOn ? " On" : " Off"}
+      </button>
     );
   }
+
 }
-ReactDOM.render(<Counter />, document.getElementById('root'));
+ReactDOM.render(<ToggleButton />, document.getElementById('root'));
