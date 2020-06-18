@@ -49,23 +49,40 @@ class ToggleButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isOn: true };
-    this.buttonOnClick = this.buttonOnClick.bind(this);
+    // this.buttonOnClick = this.buttonOnClick.bind(this);
 
   }
-  buttonOnClick() {
+  // buttonOnClick() {
+  //   this.setState(prevState => ({
+  //     isOn: !prevState.isOn
+  //   }
+  //   ));
+  // }
+  buttonOnClick = () => {
     this.setState(prevState => ({
       isOn: !prevState.isOn
-    }
-    ));
+    }));
   }
   render() {
     return (
       <button class="ToggleButton" onClick={this.buttonOnClick}>
         This is a ToggleButton
-        {this.state.isOn ? " On" : " Off"}
+        {this.state.isOn ? " Turning On" : " Turning Off"}
       </button>
     );
   }
 
 }
 ReactDOM.render(<ToggleButton />, document.getElementById('root'));
+
+class button extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: "Initial data...."
+    }
+
+
+  }
+}
